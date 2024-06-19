@@ -111,7 +111,7 @@ def get_dataset(dataset='gid', data_dir=None):
     for i in range(len(img_names)):
         if dataset == "gid":
             lbl_names[i] = os.path.join(label_dir, img_names[i].split('.')[0]+'_5label.png')
-        if dataset == "fbbp":
+        if dataset == "fbp":
             lbl_names[i] = os.path.join(label_dir, img_names[i].split('.')[0]+'_24label.png')
         elif dataset == "urur":
             lbl_names[i] = os.path.join(label_dir, img_names[i])
