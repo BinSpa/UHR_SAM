@@ -1,6 +1,7 @@
 import numpy as np
 from PIL import Image
 import os
+import cv2
 
 def rank_categroy(dataset='fbp', data_dir=None):
     if dataset == 'fbp':
@@ -36,12 +37,10 @@ def rank_categroy(dataset='fbp', data_dir=None):
     label_names = os.listdir(label_dir)
     richness_dict = {}
     for i, label_name in enumerate(label_names):
-        lbl_img = Image.open(os.path.join(label_dir, label_name))
-        np_lbl_img = np.array(lbl_img)
-        flatten_lbl = np_lbl_img.flatten()
+        lbl_img = cv2.imread(os.path.join(label_dir, label_name), cv2.IMREAD_GRAYSCALE)
+        flatten_lbl = lbl_img.flatten()
+        # 计数标签中的所有类别出现的像素数量
         counts = np.bincount(flatten_lbl)
-        values = np.nonzero(counts)[0]
-        counts = counts[values]
         for index, count in enumerate(counts):
             if index in richness_dict.keys():
                 richness_dict[index] += count
@@ -60,7 +59,7 @@ def rank_categroy(dataset='fbp', data_dir=None):
     return rank_dict, richness_list, index_dict
 
 if __name__ == "__main__":
-    rank_dict, richness_list, index_dict = rank_categroy()
+    rank_dict, richness_list, index_dict = rank_categroy(data_dir="/home/rsr/gyl/RS_DATASET/FBP/train")
     for r in richness_list:
         print("{}:{}".format(index_dict[r[0]], r[1]))
     
