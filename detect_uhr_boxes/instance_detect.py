@@ -165,13 +165,13 @@ if __name__ == "__main__":
     
     parser.add_argument('--model_type', type=str, default='vit_b')
     parser.add_argument('--sam_ckpt', type=str, default='../pretrained_checkpoint/sam_hq_vit_b.pth')
-    parser.add_argument('--dataset', type=str, default='fbp')
+    parser.add_argument('--dataset', type=str, default='urur')
     parser.add_argument('--img_nums', type=int, default=5, help='the number of the image to generate boxes.')
     parser.add_argument('--start_index', type=int, default=0)
-    parser.add_argument('--end_index', type=int, default=150)
+    parser.add_argument('--end_index', type=int, default=4000)
     parser.add_argument('--save_path', type=str, default='./', help='save the boxes to json')
-    parser.add_argument('--data_dir', type=str, default='/data1/gyl/RS_DATASET/FBP/train')
-    parser.add_argument('--select_boxes', type=int, default=1000, help="select boxes for each image")
+    parser.add_argument('--data_dir', type=str, default='/data1/gyl/RS_DATASET/URUR/train')
+    parser.add_argument('--select_boxes', type=int, default=500, help="select boxes for each image")
     
     args = parser.parse_args()
     # category name
