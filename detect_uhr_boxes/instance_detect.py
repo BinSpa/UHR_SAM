@@ -168,7 +168,7 @@ if __name__ == "__main__":
     parser.add_argument('--dataset', type=str, default='urur')
     parser.add_argument('--img_nums', type=int, default=5, help='the number of the image to generate boxes.')
     parser.add_argument('--start_index', type=int, default=0)
-    parser.add_argument('--end_index', type=int, default=4000)
+    parser.add_argument('--end_index', type=int, default=500)
     parser.add_argument('--save_path', type=str, default='./', help='save the boxes to json')
     parser.add_argument('--data_dir', type=str, default='/data1/gyl/RS_DATASET/URUR/train')
     parser.add_argument('--select_boxes', type=int, default=500, help="select boxes for each image")
