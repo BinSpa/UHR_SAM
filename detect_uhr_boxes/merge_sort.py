@@ -40,14 +40,14 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
 
     parser.add_argument('--jsonl_dir', type=str, default='jsonls')
-    parser.add_argument('--dataset', type=str, default='fbp')
+    parser.add_argument('--dataset', type=str, default='urur')
 
     args = parser.parse_args()
 
     if args.dataset == 'gid':
         jsonl_list = ['gid_0_150_boxes.jsonl']
     elif args.dataset == 'urur':
-        jsonl_list = ['urur_0_539_boxes.jsonl', 'urur_539_1078_boxes.jsonl', 'urur_1078_1617_boxes.jsonl', 'urur_1617_3008_boxes.jsonl']
+        jsonl_list = ['urur_0_500_boxes.jsonl', 'urur_500_1000_boxes.jsonl', 'urur_1000_1500_boxes.jsonl', 'urur_1500_3000_boxes.jsonl']
     elif args.dataset == 'fbp':
         jsonl_list = ['fbp_0_150_boxes.jsonl']
     else:
